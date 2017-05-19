@@ -1,0 +1,194 @@
+
+html {
+	min-height:100%;
+	background-color: #2d2d2d;
+}
+
+.body_text {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 18px;
+	font-style: normal;
+	font-weight: normal;
+	color: #a2a2a2;
+	padding: 10px;
+}
+
+.container {
+	max-width: 900px;
+	min-width: 200px;
+	background: transparent;
+	position: relative;
+	margin-top: 0;
+	margin-right: auto;
+	margin-bottom: 0;
+	margin-left: auto;
+	text-align: left;
+}
+
+
+.body_text .left {
+	text-align: left;
+    float:left;
+    width: 64%;
+}
+
+.body_text .right {
+	text-align: left;
+    float:right;
+    width: 32%;
+	border: 1px solid #8a8a8a;
+	padding: 1%;
+}
+
+.subheaders {
+	text-decoration: underline;
+}
+
+.sectheaders {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 30px;
+	text-decoration: underline;
+}
+
+.hidden {
+	color: #2d2d2d!important;
+}
+
+.hidden a{
+	color: #2d2d2d!important;
+}
+
+.hidden a:visited{
+	color: #2d2d2d!important;
+}
+
+.hidden a:hover {
+	color: #2e2e2e!important;
+}
+
+.subnavs {
+	font-size: 15px;
+}
+
+.subnavs a:visited{
+	color: #b9b9b9;
+}
+
+.unimportant {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-style: italic;
+	color: #a2a2a2;
+}
+
+.navigation {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 18px;
+	color: #a2a2a2;
+	text-align: center;
+}
+
+.navigation a {
+	color: #dedede;
+}
+
+.navigation a:visited {
+	color: #dedede;
+}
+
+.navigation a:hover {
+	color: #FFFFFF;
+}
+
+.gamename {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 20px;
+	font-style: bold;
+	color: #ffffff;
+	text-align: center;
+}
+
+.fourOfour {
+  position: absolute;
+  padding: 0 0 0 0;
+  width: 100%;
+  font-size: 72pt;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #a2a2a2;
+  text-align: center;
+}
+
+hr {
+	border-top-style: solid;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	border-color: #8a8a8a;
+	width: 100%;
+}
+
+a {
+color: #b9b9b9;
+text-decoration: none;
+}
+
+a:visited {
+color: #dedede;
+text-decoration: none;
+}
+
+a:hover {
+color: #FFFFFF;
+}
+
+.star a {
+font-size: 25px;
+text-decoration: none;
+color: b9b9b9;
+}
+
+.block {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 18px;
+	font-style: normal;
+	font-weight: normal;
+	color: #a2a2a2;
+	padding: 10px;
+	margin:10px 0;
+	padding:10px;
+	text-align: center;
+}
+
+.footer {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-style: italic;
+	color: #a2a2a2;
+	padding-bottom: 32px;
+}
+
+.footer a {
+color: #b9b9b9;
+text-decoration: none;
+}
+
+.footer a:visited {
+color: #dedede;
+text-decoration: none;
+}
+
+.footer a:hover {
+color: #FFFFFF;
+}
+
+.footer .left {
+	text-align: left;
+    float:left;
+    width: 49%;
+}
+
+.footer .right {
+	text-align: right;
+    float:right;
+    width: 49%;
+}
