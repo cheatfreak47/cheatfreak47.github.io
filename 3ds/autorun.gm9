@@ -1,0 +1,46 @@
+# CheatFreak's B9S+Luma+Homebrew GM9 Script 1.3a
+# Made to be used in a custom GodMode9 build with a hand-made romfs image with the following files contained within it
+# - boot9strap.firm (SciresM's boot9strap)
+# - boot.3dsx of MultiUpdater 3.2.1 (3.2.1 is used because it's 3dsx is smallest)
+# - config.json for MutliUpdater 3.2.1 with an entry for a ZIP3DSFX you make yourself and host online somewhere.
+# - boot.firm (latest stable Luma3DS version)
+# - config.bin (A custom default Luma3DS config)
+# the total size of these files MUST BE BELOW 3MB.
+# the total size of the custom GodMode9 ntrboot payload must be able to fit on the target flashcart, this size is variable from cart to cart but the smaller the better.
+
+# Preparations
+imgmount M:/vram.mem
+allow -a S:/firm0.bin
+
+# Made Directories
+mkdir 0:/luma
+mkdir 0:/luma/payloads
+mkdir 1:/rw/luma
+mkdir 0:/backups
+mkdir 0:/3ds
+mkdir 0:/3ds/MultiUpdater
+
+# Perform a NAND backup
+# cp -o -n -h S:/nand_minsize.bin 0:/backups/nand_minsize.bin
+
+# Backup existing FIRMs
+cp -o -n S:/firm0.bin 0:/backups/firm0.bin
+cp -o -n S:/firm1.bin 0:/backups/firm1.bin
+
+# Verify and Install Boot9strap
+verify G:/boot9strap.firm
+cp -o -n G:/boot9strap.firm S:/firm0.bin
+cp -o -n G:/boot9strap.firm S:/firm1.bin
+verify S:/firm0.bin
+verify S:/firm1.bin
+
+# Luma 3DS and Homebrew copy operations
+cp -o -n G:/boot.firm 0:/boot.firm
+cp -o -n G:/boot.firm 1:/boot.firm
+cp -o -n G:/config.bin 0:/luma/config.bin
+cp -o -n G:/config.bin 1:/rw/luma/config.bin
+cp -o -n G:/boot.3dsx 0:/boot.3dsx
+cp -o -n G:/config.json 0:/3ds/MultiUpdater/config.json
+
+# Process complete. Reboot.
+reboot
