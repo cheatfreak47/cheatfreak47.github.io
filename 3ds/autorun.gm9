@@ -1,46 +1,118 @@
-# CheatFreak's B9S+Luma+Homebrew GM9 Script 1.3a
-# Made to be used in a custom GodMode9 build with a hand-made romfs image with the following files contained within it
+# CheatFreak's B9S+Luma+Homebrew GM9 Script 1.5
+# Made to be used in a custom GodMode9 build with the following inside of the "data" folder.
+# - autorun.gm9 (this script)
 # - boot9strap.firm (SciresM's boot9strap)
 # - boot.3dsx of MultiUpdater 3.2.1 (3.2.1 is used because it's 3dsx is smallest)
 # - config.json for MutliUpdater 3.2.1 with an entry for a ZIP3DSFX you make yourself and host online somewhere.
 # - boot.firm (latest stable Luma3DS version)
-# - config.bin (A custom default Luma3DS config)
+# - config.JPN.bin (A custom default Luma3DS config for Japanese Consoles)
+# - config.USA.bin (A custom default Luma3DS config for American Consoles)
+# - config.EUR.bin (A custom default Luma3DS config for European Consoles)
+# - config.CHN.bin (A custom default Luma3DS config for Chinese Consoles)
+# - config.KOR.bin (A custom default Luma3DS config for Korean Consoles)
+# - config.TWN.bin (A custom default Luma3DS config for Tiwaneese Consoles)
+# - secret_sector.bin (A copy of the n3DS Secret Sector file for repairing the sector if it's bad)
 # the total size of these files MUST BE BELOW 3MB.
 # the total size of the custom GodMode9 ntrboot payload must be able to fit on the target flashcart, this size is variable from cart to cart but the smaller the better.
 
+# Set Variables
+set REGVAR $[REGION]
+
+# Verify Runtime Environment Before Proceeding
+if not chk $[HAX] ntrboot
+	goto wronghax
+end
+if not check $[RDTYPE] retail
+	goto wrongunit
+end
+
+# Verify Region Is Valid
+if check $[REGVAR] UNK
+	goto regsel
+end
+
+# Begin Main Script Execution
+@mainscript
+
 # Preparations
-imgmount M:/vram.mem
 allow -a S:/firm0.bin
 
-# Made Directories
+# Made SD Card Directories
 mkdir 0:/luma
 mkdir 0:/luma/payloads
-mkdir 1:/rw/luma
 mkdir 0:/backups
 mkdir 0:/3ds
 mkdir 0:/3ds/MultiUpdater
 
 # Perform a NAND backup
-# cp -o -n -h S:/nand_minsize.bin 0:/backups/nand_minsize.bin
+cp -o -n -h S:/nand_minsize.bin 0:/backups/nand_minsize.bin
+
+# Make CTRNAND Directories
+mkdir 1:/rw/luma
+mkdir 1:/rw/luma/payloads
 
 # Backup existing FIRMs
 cp -o -n S:/firm0.bin 0:/backups/firm0.bin
 cp -o -n S:/firm1.bin 0:/backups/firm1.bin
 
 # Verify and Install Boot9strap
-verify G:/boot9strap.firm
-cp -o -n G:/boot9strap.firm S:/firm0.bin
-cp -o -n G:/boot9strap.firm S:/firm1.bin
+verify V:/boot9strap.firm
+cp -o -n V:/boot9strap.firm S:/firm0.bin
+cp -o -n V:/boot9strap.firm S:/firm1.bin
 verify S:/firm0.bin
 verify S:/firm1.bin
 
+# Repair Secret Sector for n3DS if Needed
+if chk $[ONTYPE] N3DS
+    if not sha S:/sector0x96.bin 82F2730D2C2DA3F30165F987FDCCAC5CBAB24B4E5F65C981CD7BE6F438E6D9D3
+        cp -o -n V:/secret_sector.bin S:/sector0x96.bin
+    end
+end
+
 # Luma 3DS and Homebrew copy operations
-cp -o -n G:/boot.firm 0:/boot.firm
-cp -o -n G:/boot.firm 1:/boot.firm
-cp -o -n G:/config.bin 0:/luma/config.bin
-cp -o -n G:/config.bin 1:/rw/luma/config.bin
-cp -o -n G:/boot.3dsx 0:/boot.3dsx
-cp -o -n G:/config.json 0:/3ds/MultiUpdater/config.json
+cp -o -n V:/boot.firm 0:/boot.firm
+cp -o -n V:/boot.firm 1:/boot.firm
+cp -o -n V:/config_$[REGVAR].bin 0:/luma/config.bin
+cp -o -n V:/config_$[REGVAR].bin 1:/rw/luma/config.bin
+cp -o -n V:/boot.3dsx 0:/boot.3dsx
+cp -o -n V:/config.json 0:/3ds/MultiUpdater/config.json
 
 # Process complete. Reboot.
 reboot
+end
+
+# Runtime Environment Errors
+@wronghax
+echo "This version of GodMode9\nmust be ran via ntrboot."
+poweroff
+end
+@wrongunit
+echo "This ntrboot card must be\nran on retail units only."
+poweroff
+end
+
+# Region Selection Menu (If Needed)
+@regsel
+echo "Unable to detect region of console."
+labelsel -o -s "Please Input Console Region." region_*
+poweroff
+
+# Region Selection Menu Entries
+@region_Japan
+set REGVAR JPN
+goto mainscript
+@region_America
+set REGVAR USA
+goto mainscript
+@region_Europe
+set REGVAR EUR
+goto mainscript
+@region_China
+set REGVAR CHN
+goto mainscript
+@region_Korea
+set REGVAR KOR
+goto mainscript
+@region_Taiwan
+set REGVAR TWN
+goto mainscript
