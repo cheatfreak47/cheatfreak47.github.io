@@ -1,4 +1,4 @@
-# CheatFreak's B9S+Luma+Homebrew GM9 Script 1.6 RC1
+# CheatFreak's B9S+Luma+Homebrew GM9 Script 1.7
 # Made to be used in a custom GodMode9 build with the following inside of the "data" folder.
 # - autorun.gm9 (this script)
 # - boot9strap.firm (SciresM's boot9strap)
@@ -93,8 +93,6 @@ cp -o -n V:/config.json 0:/3ds/MultiUpdater/config.json
 # Process complete. Reboot.
 reboot
 end
-
-# Verbose Errors
 
 # Region Selection Menu
 @regsel
