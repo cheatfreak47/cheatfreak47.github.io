@@ -1,4 +1,4 @@
-# CheatFreak's B9S+Luma+Homebrew GM9 Script 1.5
+# CheatFreak's B9S+Luma+Homebrew GM9 Script 1.6 RC1
 # Made to be used in a custom GodMode9 build with the following inside of the "data" folder.
 # - autorun.gm9 (this script)
 # - boot9strap.firm (SciresM's boot9strap)
@@ -10,7 +10,7 @@
 # - config.EUR.bin (A custom default Luma3DS config for European Consoles)
 # - config.CHN.bin (A custom default Luma3DS config for Chinese Consoles)
 # - config.KOR.bin (A custom default Luma3DS config for Korean Consoles)
-# - config.TWN.bin (A custom default Luma3DS config for Tiwaneese Consoles)
+# - config.TWN.bin (A custom default Luma3DS config for Taiwanese Consoles)
 # - secret_sector.bin (A copy of the n3DS Secret Sector file for repairing the sector if it's bad)
 # the total size of these files MUST BE BELOW 3MB.
 # the total size of the custom GodMode9 ntrboot payload must be able to fit on the target flashcart, this size is variable from cart to cart but the smaller the better.
@@ -18,16 +18,30 @@
 # Set Variables
 set REGVAR $[REGION]
 
-# Verify Runtime Environment Before Proceeding
+# Verify Environment Integrity
 if not chk $[HAX] ntrboot
-	goto wronghax
+	echo "This script is made for ntrboot cards."
+	poweroff
 end
-if not check $[RDTYPE] retail
-	goto wrongunit
+if chk $[RDTYPE] devkit
+	echo "This script was not made for devkits."
+	echo "If you see this error, you need to\nremove this check from the script in\norder to use it for a devkit console."
+	echo "You would also need to be using boot9strap-dev.\n...Unless you want to brick your devkit."
+	poweroff
 end
-
-# Verify Region Is Valid
-if check $[REGVAR] UNK
+if not verify V:/boot9strap.firm
+	echo "The boot9strap.firm file is bad.\nPlease recompile with the correct file."
+	poweroff
+end
+if not sha V:/secret_sector.bin "82F2730D2C2DA3F30165F987FDCCAC5CBAB24B4E5F65C981CD7BE6F438E6D9D3"
+	echo "The secret_sector.bin file is bad.\nPlease recompile with the correct file."
+	poweroff
+end
+if not verify V:/boot.firm
+	echo "The included copy of Luma3DS is bad.\nPlease recompile with the correct file."
+	poweroff
+end
+if chk $[REGVAR] UNK
 	goto regsel
 end
 
@@ -55,8 +69,7 @@ mkdir 1:/rw/luma/payloads
 cp -o -n S:/firm0.bin 0:/backups/firm0.bin
 cp -o -n S:/firm1.bin 0:/backups/firm1.bin
 
-# Verify and Install Boot9strap
-verify V:/boot9strap.firm
+# Install Boot9strap
 cp -o -n V:/boot9strap.firm S:/firm0.bin
 cp -o -n V:/boot9strap.firm S:/firm1.bin
 verify S:/firm0.bin
@@ -64,12 +77,12 @@ verify S:/firm1.bin
 
 # Repair Secret Sector for n3DS if Needed
 if chk $[ONTYPE] N3DS
-    if not sha S:/sector0x96.bin 82F2730D2C2DA3F30165F987FDCCAC5CBAB24B4E5F65C981CD7BE6F438E6D9D3
+    if not sha S:/sector0x96.bin "82F2730D2C2DA3F30165F987FDCCAC5CBAB24B4E5F65C981CD7BE6F438E6D9D3"
         cp -o -n V:/secret_sector.bin S:/sector0x96.bin
     end
 end
 
-# Luma 3DS and Homebrew copy operations
+# Luma3DS and Homebrew copy operations
 cp -o -n V:/boot.firm 0:/boot.firm
 cp -o -n V:/boot.firm 1:/boot.firm
 cp -o -n V:/config_$[REGVAR].bin 0:/luma/config.bin
@@ -81,23 +94,13 @@ cp -o -n V:/config.json 0:/3ds/MultiUpdater/config.json
 reboot
 end
 
-# Runtime Environment Errors
-@wronghax
-echo "This version of GodMode9\nmust be ran via ntrboot."
-poweroff
-end
-@wrongunit
-echo "This ntrboot card must be\nran on retail units only."
-poweroff
-end
+# Verbose Errors
 
-# Region Selection Menu (If Needed)
+# Region Selection Menu
 @regsel
 echo "Unable to detect region of console."
 labelsel -o -s "Please Input Console Region." region_*
 poweroff
-
-# Region Selection Menu Entries
 @region_Japan
 set REGVAR JPN
 goto mainscript
