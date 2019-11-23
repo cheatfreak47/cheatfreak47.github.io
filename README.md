@@ -1,2 +1,2 @@
 # cheatfreak47.github.io
-This is a project for my personal website cheatfreak47.cf which uses Github Pages.
+This is a project for my personal website which uses Github Pages.
