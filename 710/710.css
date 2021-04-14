@@ -174,15 +174,15 @@
 
 .arrows{
     position: absolute;
-    width: 156px;
-    height: 30px;
-    top: 190px;
-    left: 298px;
+    width: 201px;
+    height: 29px;
+    top: 339px;
+    left: 280px;
 }
 .back, .start{
     background: url(backstart.png);
-    width: 30px;
-    height: 30px;
+    width: 42px;
+    height: 28px;
     opacity: 0;
     background-size: 200%;
 }
@@ -193,6 +193,7 @@
     float: left;
 }
 .start{
-    background-position: 28px 0px;
+    background-position: 42px 0px;
     float: right;
+	top:1px
 }
