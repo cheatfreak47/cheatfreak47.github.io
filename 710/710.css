@@ -32,7 +32,7 @@
 }
 
 .abxy {
-	width: 159px;
+	width: 220px;
     display: block;
     position: absolute;
     top: 218px;
@@ -47,33 +47,33 @@
     background-size: 400%;
     background-repeat-y: no-repeat;
 }
-
+/*buttons*/
 .button.pressed{
     margin-top: -2px;
     opacity: 1;
     background-position-y:-55px;
-}
-.b{
-    background-position: 0 0;
-    top: 55px;
-    right: 1px;
 }
 .a{
     background-position: -55px 0;
     top: 104px;
     left: 56px;
 }
-.y{
-    background-position: -165px 0;
-    left: 57px;
-    top: 7px;
+.b{
+    background-position: 0 0;
+    top: 55px;
+    right: 1px;
 }
 .x{
     background-position: 55px 0;
     top: 55px;
     left: 4px;
 }
-
+.y{
+    background-position: -144px 0;
+    left: 57px;
+    top: 7px;
+}
+/*dpad*/
 .dpad{
     position: absolute;
     width: 110px;
