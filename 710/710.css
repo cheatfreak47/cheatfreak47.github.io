@@ -176,7 +176,7 @@
     position: absolute;
     width: 201px;
     height: 28px;
-    top: 339px;
+    top: 335px;
     left: 280px;
 }
 .back, .start{
@@ -193,6 +193,6 @@
     float: left;
 }
 .start{
-    background-position: 28px 0px;
+    background-position: 42px 0px;
     float: right;
 }
