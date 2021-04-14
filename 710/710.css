@@ -190,10 +190,10 @@
     opacity: 1;
 }
 .back{
-    float: left;
+    left: 0px;
 }
 .start{
     background-position: 42px 0px;
-    float: right;
+    right: 0px;
 	top:1px
 }
