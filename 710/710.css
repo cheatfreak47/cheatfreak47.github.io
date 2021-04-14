@@ -1,6 +1,6 @@
 .controller {
 	background: url('pad.png');
-	height: 630px;
+	height: 680px;
 	width: 750px;
 	margin-left: -375px;
 	margin-top: -285px;
@@ -10,9 +10,9 @@
 
 .stick {
 	position: absolute;
-	background: url('stick.png') repeat scroll -83px 0px transparent;
-	height: 83px;
-	width: 82px;
+	background: url('stick.png') repeat scroll -97px 0px transparent;
+	height: 97px;
+	width: 97px;
 	background-size: cover;
 }
 
@@ -22,12 +22,12 @@
 }
 
 .stick.left {
-	top: 558px;
-    left: 112px;
+	top: 300px;
+    left: 160px;
 }
 
 .stick.right {
-	top: 558px;
+	top: 300px;
     left: 558px;
 }
 
