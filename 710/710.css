@@ -30,7 +30,7 @@
 	top: 473px;
     left: 443px;
 }
-
+/*buttons*/
 .abxy {
 	width: 220px;
     display: block;
@@ -38,7 +38,6 @@
     top: 218px;
     right: 156px;
 }
-
 .button{
     position: absolute;
     background: url(abxy.png);
@@ -47,7 +46,6 @@
     background-size: 400%;
     background-repeat-y: no-repeat;
 }
-/*buttons*/
 .button.pressed{
     margin-top: -2px;
     opacity: 1;
@@ -59,7 +57,7 @@
     left: 56px;
 }
 .b{
-    background-position: 0 0;
+    background-position: -48 0;
     top: 55px;
     right: 1px;
 }
