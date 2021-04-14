@@ -1,3 +1,4 @@
+/*Controller Image*/
 .controller {
 	background: url('pad.png');
 	height: 680px;
@@ -8,6 +9,7 @@
     background-repeat: no-repeat;
 }
 
+/*Analog Sticks*/
 .stick {
 	position: absolute;
 	background: url('stick.png') repeat scroll -97px 0px transparent;
@@ -15,24 +17,22 @@
 	width: 97px;
 	background-size: cover;
 }
-
 .stick.pressed {
 	background: url('stick.png') repeat scroll 0px 0px transparent;
 	background-size: cover;
 }
-
 .stick.left {
 	top: 471px;
     left: 219px;
 }
-
 .stick.right {
 	top: 473px;
     left: 443px;
 }
+
 /*buttons*/
 .abxy {
-	width: 220px;
+	width: 222px;
     display: block;
     position: absolute;
     top: 218px;
@@ -41,7 +41,7 @@
 .button{
     position: absolute;
     background: url(abxy.png);
-    width: 55px;
+    width: 56px;
     height: 55px;
     background-size: 400%;
     background-repeat-y: no-repeat;
@@ -52,24 +52,24 @@
     background-position-y:-55px;
 }
 .a{
-    background-position: -55px 0;
-    top: 104px;
-    left: 56px;
-}
-.b{
-    background-position: -48 0;
+    background-position: 0 0;
     top: 55px;
     right: 1px;
 }
-.x{
-    background-position: 55px 0;
-    top: 55px;
-    left: 4px;
+.b{
+    background-position: -48px 0;
+    top: 104px;
+    left: 56px;
 }
-.y{
-    background-position: -144px 0;
+.x{
+    background-position: -96px 0;
     left: 57px;
     top: 7px;
+}
+.y{
+    background-position: 48px 0;
+    top: 55px;
+    left: 4px;
 }
 /*dpad*/
 .dpad{
