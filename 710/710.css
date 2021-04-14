@@ -122,10 +122,11 @@
 
 /*Triggers & Bumpers*/
 .triggers{
-    width: 425px;
+    width: 523px;
     height: 72px;
     position: absolute;
     left: 120px;
+	top: 47px;
 }
 .trigger{
     width: 67px;
@@ -141,6 +142,7 @@
 .trigger.right{
 	background-image: url(rt.png);
 	right:0px;
+	top:2px;
 }
 
 .bumper{
@@ -153,10 +155,10 @@
 }
 .bumpers{
     position: absolute;
-    width: 564px;
-    height: 63px;
-    left: 92px;
-    top: 27px;
+    width: 547px;
+    height: 54px;
+    left: 108px;
+    top: 136px;
 }
 .bumper.pressed{
     opacity: 1;
@@ -167,6 +169,7 @@
 .bumper.right{
     background-image: url(rb.png);
     right:0px;
+	top:1px;
 }
 
 .arrows{
