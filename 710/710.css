@@ -122,14 +122,14 @@
 
 /*Triggers & Bumpers*/
 .triggers{
-    width: 470px;
-    height: 30px;
+    width: 425px;
+    height: 72px;
     position: absolute;
-    left: 141px;
+    left: 120px;
 }
 .trigger{
-    width: 52px;
-    height: 30px;
+    width: 67px;
+    height: 70px;
     opacity: 0;
     position: absolute;
     background-size: contain;
