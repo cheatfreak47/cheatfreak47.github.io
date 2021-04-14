@@ -175,7 +175,7 @@
 .arrows{
     position: absolute;
     width: 201px;
-    height: 29px;
+    height: 28px;
     top: 339px;
     left: 280px;
 }
@@ -190,10 +190,9 @@
     opacity: 1;
 }
 .back{
-    left: 0px;
+    float: left;
 }
 .start{
-    background-position: 42px 0px;
-    right: 0px;
-	top:1px
+    background-position: 28px 0px;
+    float: right;
 }
