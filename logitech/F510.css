@@ -22,12 +22,12 @@
 	background-size: cover;
 }
 .stick.left {
-	top: 474px;
-    left: 214px;
+	top: 487px;
+    left: 220px;
 }
 .stick.right {
 	top: 475px;
-    left: 431px;
+    left: 439px;
 }
 
 /*Face Buttons*/
@@ -35,8 +35,8 @@
 	width: 222px;
     display: block;
     position: absolute;
-    top: 224px;
-    right: 170px;
+    top: 234px;
+    right: 161px;
 }
 .button{
     position: absolute;
@@ -76,8 +76,8 @@
     position: absolute;
     width: 110px;
     height: 111px;
-    top: 244px;
-    left: 179px;
+    top: 255px;
+    left: 181px;
 }
 .face{
     background: url(dpad.png);
@@ -125,7 +125,7 @@
     width: 510px;
     height: 72px;
     position: absolute;
-    left: 120px;
+    left: 117px;
 	top: 47px;
 }
 .trigger{
@@ -158,7 +158,7 @@
     width: 533px;
     height: 54px;
     left: 108px;
-    top: 139px;
+    top: 141px;
 }
 .bumper.pressed{
     opacity: 1;
@@ -174,10 +174,10 @@
 
 .arrows{
     position: absolute;
-    width: 197px;
+    width: 199px;
     height: 28px;
-    top: 331px;
-    left: 275px;
+    top: 341px;
+    left: 278px;
 }
 .back, .start{
     background: url(backstart.png);
