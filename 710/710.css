@@ -47,29 +47,29 @@
     background-repeat-y: no-repeat;
 }
 .button.pressed{
-    margin-top: -2px;
+    margin-top: 0px;
     opacity: 1;
     background-position-y:-55px;
 }
 .a{
     background-position: 0 0;
-    top: 55px;
-    right: 1px;
+    top: 207px;
+    right: -36px;
 }
 .b{
-    background-position: -48px 0;
-    top: 104px;
-    left: 56px;
+    background-position: -56px 0;
+    top: 150px;
+    left: 259px;
 }
 .x{
-    background-position: -96px 0;
-    left: 57px;
-    top: 7px;
+    background-position: -112px 0;
+    left: 145px;
+    top: 149px;
 }
 .y{
-    background-position: 48px 0;
-    top: 55px;
-    left: 4px;
+    background-position: 56px 0;
+    top: 92px;
+    left: 202px;
 }
 /*dpad*/
 .dpad{
