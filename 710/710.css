@@ -42,8 +42,8 @@
 .button{
     position: absolute;
     background: url(abxy.png);
-    width: 48px;
-    height: 47px;
+    width: 55px;
+    height: 55px;
     background-size: 400%;
     background-repeat-y: no-repeat;
 }
@@ -51,25 +51,25 @@
 .button.pressed{
     margin-top: -2px;
     opacity: 1;
-    background-position-y:-47px;
+    background-position-y:-55px;
 }
-.a{
+.b{
     background-position: 0 0;
     top: 55px;
     right: 1px;
 }
-.b{
-    background-position: -48px 0;
+.a{
+    background-position: -55px 0;
     top: 104px;
     left: 56px;
 }
-.x{
-    background-position: -96px 0;
+.y{
+    background-position: -55px 0;
     left: 57px;
     top: 7px;
 }
-.y{
-    background-position: 48px 0;
+.x{
+    background-position: 55px 0;
     top: 55px;
     left: 4px;
 }
