@@ -98,7 +98,7 @@
 .face.down {
     left: -65px;
     background-size: 200%;
-    bottom: 25px;
+    bottom: -105px;
     width: 89px;
     height: 63px;
     background-position: -89px 0px;
@@ -117,7 +117,7 @@
     width: 62px;
     height: 89px;
     top: 109px;
-    right: 137px;
+    right: 69px;
 }
 
 /*Triggers & Bumpers*/
