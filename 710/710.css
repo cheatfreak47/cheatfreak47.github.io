@@ -30,7 +30,7 @@
     left: 443px;
 }
 
-/*buttons*/
+/*Face Buttons*/
 .abxy {
 	width: 222px;
     display: block;
@@ -71,7 +71,7 @@
     top: 92px;
     left: 202px;
 }
-/*dpad*/
+/*D-Pad Highlights*/
 .dpad{
     position: absolute;
     width: 110px;
@@ -87,38 +87,40 @@
 .face.pressed{
     opacity: 1;
 }
-.face.up{
-    background-position: 34px 0;
-    background-size: 210%;
-    left: 39px;
-    top: 2px;
-    width: 34px;
-    height: 55px;
+.face.up {
+    background-position: 0px 0;
+    background-size: 200%;
+    left: -65px;
+    top: 91px;
+    width: 89px;
+    height: 63px;
 }
-.face.down{
-    left: 38px;
-    background-size: 210%;
-    bottom: 2px;
-    width: 34px;
-    height: 54px;
+.face.down {
+    left: -65px;
+    background-size: 200%;
+    bottom: 25px;
+    width: 89px;
+    height: 63px;
+    background-position: -89px 0px;
 }
-.face.left{
-    background-position: 0 -92px;
-    background-size: 133%;
-    width: 55px;
-    height: 35px;
-    top: 39px;
-    left: 1px;
+.face.left {
+    background-position: 0 -63px;
+    background-size: 286%;
+    width: 62px;
+    height: 89px;
+    top: 109px;
+    left: -83px;
 }
-.face.right{
-    background-position: 0 -56px;
-    background-size: 133%;
-    width: 55px;
-    height: 35px;
-    top: 39px;
-    right: 0;
+.face.right {
+    background-position: 0 -152px;
+    background-size: 286%;
+    width: 62px;
+    height: 89px;
+    top: 109px;
+    right: 137px;
 }
 
+/*Triggers & Bumpers*/
 .triggers{
     width: 470px;
     height: 30px;
